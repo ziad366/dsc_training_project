@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 class Orders extends StatefulWidget {
   static String id = "Orders";
 
+  const Orders({Key? key}) : super(key: key);
+
   @override
   _OrdersState createState() => _OrdersState();
 }
