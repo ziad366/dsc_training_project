@@ -599,7 +599,9 @@ class _HomePageState extends State<HomePage> {
               clipBehavior: Clip.hardEdge,
               color: Colors.black12,
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  // TODO search for specific item
+                },
                 child: IconButton(onPressed: () {}, icon: Icon(Icons.search)),
               ),
             ),
@@ -668,7 +670,147 @@ class _HomePageState extends State<HomePage> {
               clipBehavior: Clip.hardEdge,
               borderRadius: BorderRadius.circular(20),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  showModalBottomSheet<void>(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            topLeft: Radius.circular(20))),
+                    clipBehavior: Clip.hardEdge,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: 300,
+                        color: Colors.black12,
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: SingleChildScrollView(
+                          child: Wrap(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 15, horizontal: 20),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "All Categories",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Material(
+                                      clipBehavior: Clip.hardEdge,
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: InkWell(
+                                        onTap: () {
+                                          // TODO Close this
+                                          Navigator.pop(context);
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(10),
+                                          child: Text(
+                                            "CLOSE",
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.orange,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              getAllCategoriesItemView(0),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(1),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(2),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(3),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(4),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(5),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(6),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(7),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(8),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(9),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(0),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(1),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(2),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(3),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(4),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(5),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(6),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(7),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(8),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              getAllCategoriesItemView(9),
+                              SizedBox(
+                                width: 15,
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Text(
@@ -682,6 +824,30 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
+        ),
+      );
+
+  Widget getAllCategoriesItemView(int index) => Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Material(
+          borderRadius: BorderRadius.circular(20),
+          clipBehavior: Clip.hardEdge,
+          color: Colors.white,
+          child: InkWell(
+            onTap: () {},
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(topCategoriesIcons[index]),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(categories[index].category)
+                  ],
+                )),
+          ),
         ),
       );
 
@@ -805,84 +971,96 @@ class _HomePageState extends State<HomePage> {
   }
 
   // get item card view
-  Widget getCategoryItemCard(ItemModel model, bool isLastItem) => Container(
-        width: isLastItem ? 220 : 0,
-        height: 250,
-        margin: EdgeInsets.only(top: 15, bottom: isLastItem ? 15 : 0),
-        padding: EdgeInsets.all(15),
-        decoration: BoxDecoration(
+  Widget getCategoryItemCard(ItemModel model, bool isLastItem) => Padding(
+        padding: EdgeInsets.only(top: 15, bottom: isLastItem ? 15 : 0),
+        child: Material(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.black12,
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  model.isOfferEnabled ? model.offer : "",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                InkWell(
-                    onTap: () => setState(() {
-                          bool exists = favourites
-                              .any((element) => element.id == model.id);
-                          if (exists) {
-                            favourites.removeWhere(
-                                (element) => element.id == model.id);
-                          } else {
-                            favourites.add(model);
-                          }
-                        }),
-                    child: Icon(
-                      Icons.favorite,
-                      color: favourites.any((element) => element.id == model.id)
-                          ? Colors.red
-                          : Colors.grey,
-                    ))
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Expanded(
-                child: Image.asset(
-              model.imagePath,
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.high,
-            )),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              model.itemName,
-              style: TextStyle(fontSize: 20, color: Colors.black38),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            RichText(
-              text: TextSpan(
-                text: model.price,
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
-                children: <TextSpan>[
-                  TextSpan(text: ' '),
-                  TextSpan(
-                      text: model.priceBeforeOffer,
+          clipBehavior: Clip.hardEdge,
+          child: InkWell(
+            onTap: () {
+              //TODO got to item screen
+            },
+            child: Container(
+              width: isLastItem ? 220 : 0,
+              height: 250,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.black12,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        model.isOfferEnabled ? model.offer : "",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                      InkWell(
+                          onTap: () => setState(() {
+                                bool exists = favourites
+                                    .any((element) => element.id == model.id);
+                                if (exists) {
+                                  favourites.removeWhere(
+                                      (element) => element.id == model.id);
+                                } else {
+                                  favourites.add(model);
+                                }
+                              }),
+                          child: Icon(
+                            Icons.favorite,
+                            color: favourites
+                                    .any((element) => element.id == model.id)
+                                ? Colors.red
+                                : Colors.grey,
+                          ))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                      child: Image.asset(
+                    model.imagePath,
+                    fit: BoxFit.cover,
+                    filterQuality: FilterQuality.high,
+                  )),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    model.itemName,
+                    style: TextStyle(fontSize: 20, color: Colors.black38),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: model.price,
                       style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black38,
-                          decoration: TextDecoration.lineThrough)),
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                      children: <TextSpan>[
+                        TextSpan(text: ' '),
+                        TextSpan(
+                            text: model.priceBeforeOffer,
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black38,
+                                decoration: TextDecoration.lineThrough)),
+                      ],
+                    ),
+                  )
                 ],
               ),
-            )
-          ],
+            ),
+          ),
         ),
       );
 
@@ -957,7 +1135,9 @@ class _HomePageState extends State<HomePage> {
                       clipBehavior: Clip.hardEdge,
                       color: Colors.white,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          // TODO get the offer
+                        },
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
