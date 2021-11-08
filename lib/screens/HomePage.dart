@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:dsc_training_project/screens/Setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -49,6 +50,9 @@ class _HomePageState extends State<HomePage> {
 
   // index of current selected category
   int currentTopCategoriesIndex = 0;
+
+  // index of selected icon in bottom nav bar
+  int currentSelectedScreenView = 0;
 
   // colors of different offers views
   List<List<Color>> colors = [
@@ -576,6 +580,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       )),
+      bottomNavigationBar: getScreenPart8(),
     );
   }
 
@@ -584,16 +589,26 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.black12,
-                    borderRadius: BorderRadius.circular(20)),
-                child: Image.asset(
-                  "assets/bowen_kton.png",
-                  fit: BoxFit.cover,
-                )),
+            Material(
+              borderRadius: BorderRadius.circular(20),
+              clipBehavior: Clip.hardEdge,
+              color: Colors.black12,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Setting.id);
+                  // TODO open Drawer
+                },
+                child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: Image.asset(
+                      "assets/bowen_kton.png",
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
             Material(
               borderRadius: BorderRadius.circular(20),
               clipBehavior: Clip.hardEdge,
@@ -610,7 +625,7 @@ class _HomePageState extends State<HomePage> {
       );
 
   Widget getScreenPart2() => Padding(
-        padding: const EdgeInsets.only(left: 25, right: 25, top: 25, bottom: 8),
+        padding: const EdgeInsets.only(left: 25, right: 25, top: 15, bottom: 8),
         child: Row(
           children: [
             Text(
@@ -655,7 +670,7 @@ class _HomePageState extends State<HomePage> {
       );
 
   Widget getScreenPart5() => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -705,10 +720,7 @@ class _HomePageState extends State<HomePage> {
                                       clipBehavior: Clip.hardEdge,
                                       borderRadius: BorderRadius.circular(20),
                                       child: InkWell(
-                                        onTap: () {
-                                          // TODO Close this
-                                          Navigator.pop(context);
-                                        },
+                                        onTap: () => Navigator.pop(context),
                                         child: Padding(
                                           padding: const EdgeInsets.all(10),
                                           child: Text(
@@ -827,6 +839,86 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
+  Widget getScreenPart6() => SizedBox(
+        height: 70,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: topCategoriesCount,
+            itemBuilder: (context, index) {
+              return getTopCategoriesView(index);
+            }),
+      );
+
+  Widget getScreenPart7() => Padding(
+        padding: EdgeInsets.only(left: 15, right: 15),
+        child: OrientationBuilder(
+          builder: (context, orientation) {
+            return Column(
+              children: getCategoryItemCardRowList(
+                  MediaQuery.of(context).orientation == Orientation.landscape),
+            );
+          },
+        ),
+      );
+
+  Widget getScreenPart8() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          getBottomBarItemView(0, "Home", Icons.home),
+          getBottomBarItemView(1, "Favourites", Icons.favorite),
+          getBottomBarItemView(2, "My Cart", Icons.shopping_cart),
+          getBottomBarItemView(3, "Profile", Icons.person),
+        ],
+      ),
+    );
+  }
+
+  // get bottom navigation bar view item
+  Widget getBottomBarItemView(int index, String text, IconData iconData) =>
+      InkWell(
+        onTap: () => setState(() {
+          currentSelectedScreenView = index;
+        }),
+        child: currentSelectedScreenView == index
+            ? Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    color: Colors.orange.shade50,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Row(
+                  children: [
+                    Icon(
+                      iconData,
+                      color: Colors.orange,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      text,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange),
+                    )
+                  ],
+                ),
+              )
+            : Icon(
+                iconData,
+                color: Colors.grey,
+              ),
+      );
+
+  // get category item view in all categories view
   Widget getAllCategoriesItemView(int index) => Padding(
         padding: const EdgeInsets.only(bottom: 10),
         child: Material(
@@ -848,28 +940,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 )),
           ),
-        ),
-      );
-
-  Widget getScreenPart6() => SizedBox(
-        height: 70,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: topCategoriesCount,
-            itemBuilder: (context, index) {
-              return getTopCategoriesView(index);
-            }),
-      );
-
-  Widget getScreenPart7() => Padding(
-        padding: EdgeInsets.only(left: 15, right: 15),
-        child: OrientationBuilder(
-          builder: (context, orientation) {
-            return Column(
-              children: getCategoryItemCardRowList(
-                  MediaQuery.of(context).orientation == Orientation.landscape),
-            );
-          },
         ),
       );
 
@@ -982,7 +1052,7 @@ class _HomePageState extends State<HomePage> {
             },
             child: Container(
               width: isLastItem ? 220 : 0,
-              height: 250,
+              height: 270,
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -993,12 +1063,20 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        model.isOfferEnabled ? model.offer : "",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white54,
+                        ),
+                        child: Text(
+                          model.isOfferEnabled ? model.offer : "",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
                       ),
                       InkWell(
                           onTap: () => setState(() {
@@ -1024,36 +1102,49 @@ class _HomePageState extends State<HomePage> {
                     height: 15,
                   ),
                   Expanded(
-                      child: Image.asset(
-                    model.imagePath,
-                    fit: BoxFit.cover,
-                    filterQuality: FilterQuality.high,
-                  )),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    model.itemName,
-                    style: TextStyle(fontSize: 20, color: Colors.black38),
+                    child: Image.asset(
+                      model.imagePath,
+                      fit: BoxFit.contain,
+                      filterQuality: FilterQuality.high,
+                    ),
                   ),
                   SizedBox(
                     height: 15,
                   ),
-                  RichText(
-                    text: TextSpan(
-                      text: model.price,
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                      children: <TextSpan>[
-                        TextSpan(text: ' '),
-                        TextSpan(
-                            text: model.priceBeforeOffer,
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white54,
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          model.itemName,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 20, color: Colors.black38),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            text: model.price,
                             style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black38,
-                                decoration: TextDecoration.lineThrough)),
+                                fontSize: 25,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                            children: <TextSpan>[
+                              TextSpan(text: ' '),
+                              TextSpan(
+                                  text: model.priceBeforeOffer,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black38,
+                                      decoration: TextDecoration.lineThrough)),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   )
