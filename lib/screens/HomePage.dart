@@ -1052,7 +1052,7 @@ class _HomePageState extends State<HomePage> {
             },
             child: Container(
               width: isLastItem ? 220 : 0,
-              height: 270,
+              height: 280,
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -1073,7 +1073,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           model.isOfferEnabled ? model.offer : "",
                           style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 17,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
@@ -1099,17 +1099,24 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
-                  Expanded(
+                  Container(
+                    width: 150,
+                    height: 110,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      color: Colors.black12,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
                     child: Image.asset(
                       model.imagePath,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                       filterQuality: FilterQuality.high,
                     ),
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
@@ -1122,7 +1129,7 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           model.itemName,
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20, color: Colors.black38),
+                          style: TextStyle(fontSize: 17, color: Colors.black38),
                         ),
                         SizedBox(
                           height: 10,
@@ -1131,7 +1138,7 @@ class _HomePageState extends State<HomePage> {
                           text: TextSpan(
                             text: model.price,
                             style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 20,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                             children: <TextSpan>[
