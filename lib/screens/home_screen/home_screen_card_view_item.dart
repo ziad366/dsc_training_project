@@ -5,7 +5,6 @@ class HomeCardViewItem extends StatelessWidget {
   const HomeCardViewItem(
       {Key? key,
       required this.isLastItem,
-      required this.isOriented,
       this.isLastTwoItems,
       required this.model,
       required this.updateFavouriteData,
@@ -14,7 +13,6 @@ class HomeCardViewItem extends StatelessWidget {
 
   final bool isLastItem;
   final bool? isLastTwoItems;
-  final bool isOriented;
   final ItemModel model;
   final Function(ItemModel model) updateFavouriteData;
   final List favourites;
@@ -36,7 +34,7 @@ class HomeCardViewItem extends StatelessWidget {
                 : isLastItem
                     ? 220
                     : null,
-            height: isLastItem || isOriented ? 260 : 280,
+            height: 280,
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),

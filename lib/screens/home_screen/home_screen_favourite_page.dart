@@ -1,4 +1,3 @@
-import 'package:dsc_training_project/screens/home_screen/data.dart';
 import 'package:dsc_training_project/screens/home_screen/home_screen_card_view_item_row.dart';
 import 'package:dsc_training_project/screens/home_screen/item_model.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +5,10 @@ import 'package:flutter/material.dart';
 class HomeScreenFavouritePage extends StatelessWidget {
   const HomeScreenFavouritePage(
       {Key? key,
-      required this.currentTopCategoriesIndex,
       required this.favourites,
       required this.itemCardViewUpdateFavourites})
       : super(key: key);
 
-  final int currentTopCategoriesIndex;
   final List favourites;
   final Function(ItemModel model) itemCardViewUpdateFavourites;
 
@@ -36,29 +33,28 @@ class HomeScreenFavouritePage extends StatelessWidget {
             bool goTriple =
                 MediaQuery.of(context).orientation == Orientation.landscape;
             List<Widget> result = [];
-            bool isOdd = models[currentTopCategoriesIndex].length % 2 != 0;
-            bool isTriple = models[currentTopCategoriesIndex].length % 3 != 0;
+            bool isOdd = favourites.length % 2 != 0;
+            bool isTriple = favourites.length % 3 != 0;
             int size;
             if (!goTriple)
-              size = (!isOdd
-                      ? models[currentTopCategoriesIndex].length / 2
-                      : models[currentTopCategoriesIndex].length / 2 + 1)
-                  .toInt();
+              size =
+                  (!isOdd ? favourites.length / 2 : favourites.length / 2 + 1)
+                      .toInt();
             else
               size = (!isTriple
-                      ? models[currentTopCategoriesIndex].length / 3
-                      : models[currentTopCategoriesIndex].length / 3 + 1)
+                      ? favourites.length / 3
+                      : favourites.length / 3 + 1)
                   .toInt();
             int index = 0;
             for (int i = 0; i < size; i++) {
               if (isTriple && goTriple && i != size - 1) {
-                ItemModel model1 = models[currentTopCategoriesIndex][index];
+                ItemModel model1 = favourites[index];
                 int index1 = index;
                 index++;
-                ItemModel model2 = models[currentTopCategoriesIndex][index];
+                ItemModel model2 = favourites[index];
                 int index2 = index;
                 index++;
-                ItemModel model3 = models[currentTopCategoriesIndex][index];
+                ItemModel model3 = favourites[index];
                 int index3 = index;
                 index++;
                 result.add(HomeCardViewItemRow(
@@ -77,10 +73,10 @@ class HomeScreenFavouritePage extends StatelessWidget {
               } else if (!isOdd ||
                   (isOdd && i != size - 1) ||
                   (isOdd && goTriple && i == size - 1)) {
-                ItemModel model1 = models[currentTopCategoriesIndex][index];
+                ItemModel model1 = favourites[index];
                 int index1 = index;
                 index++;
-                ItemModel model2 = models[currentTopCategoriesIndex][index];
+                ItemModel model2 = favourites[index];
                 int index2 = index;
                 index++;
                 result.add(HomeCardViewItemRow(
@@ -98,7 +94,7 @@ class HomeScreenFavouritePage extends StatelessWidget {
                   isLastTwoItems: isOdd && goTriple && i == size - 1,
                 ));
               } else {
-                ItemModel model1 = models[currentTopCategoriesIndex][index];
+                ItemModel model1 = favourites[index];
                 int index1 = index;
                 result.add(HomeCardViewItemRow(
                   model1: model1,

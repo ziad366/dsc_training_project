@@ -51,7 +51,6 @@ class _HomePageState extends State<HomePage> {
             )
           : currentSelectedScreenView == 1
               ? HomeScreenFavouritePage(
-                  currentTopCategoriesIndex: currentTopCategoriesIndex,
                   itemCardViewUpdateFavourites: itemCardViewUpdateFavourites,
                   favourites: favourites,
                 )

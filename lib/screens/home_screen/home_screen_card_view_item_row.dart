@@ -45,7 +45,6 @@ class HomeCardViewItemRow extends StatelessWidget {
               favourites: favourites,
               updateFavouriteData: itemCardViewUpdateFavourites,
               model: model1,
-              isOriented: isOriented,
             ),
             HomeCardViewItem(
               isLastItem: isLastItem,
@@ -53,7 +52,6 @@ class HomeCardViewItemRow extends StatelessWidget {
               favourites: favourites,
               updateFavouriteData: itemCardViewUpdateFavourites,
               model: model2!,
-              isOriented: isOriented,
             )
           ],
         );
@@ -68,7 +66,6 @@ class HomeCardViewItemRow extends StatelessWidget {
             favourites: favourites,
             updateFavouriteData: itemCardViewUpdateFavourites,
             model: model1,
-            isOriented: isOriented,
           )),
           SizedBox(
             width: 15,
@@ -80,7 +77,6 @@ class HomeCardViewItemRow extends StatelessWidget {
             favourites: favourites,
             updateFavouriteData: itemCardViewUpdateFavourites,
             model: model2!,
-            isOriented: isOriented,
           ))
         ],
       );
@@ -94,7 +90,6 @@ class HomeCardViewItemRow extends StatelessWidget {
             favourites: favourites,
             updateFavouriteData: itemCardViewUpdateFavourites,
             model: model1,
-            isOriented: isOriented,
           )),
           SizedBox(
             width: 15,
@@ -105,7 +100,6 @@ class HomeCardViewItemRow extends StatelessWidget {
             favourites: favourites,
             updateFavouriteData: itemCardViewUpdateFavourites,
             model: model2!,
-            isOriented: isOriented,
           )),
           SizedBox(
             width: 15,
@@ -116,7 +110,6 @@ class HomeCardViewItemRow extends StatelessWidget {
             favourites: favourites,
             updateFavouriteData: itemCardViewUpdateFavourites,
             model: model3!,
-            isOriented: isOriented,
           ))
         ],
       );
@@ -131,7 +124,6 @@ class HomeCardViewItemRow extends StatelessWidget {
             favourites: favourites,
             updateFavouriteData: itemCardViewUpdateFavourites,
             model: model1,
-            isOriented: isOriented,
           )
         ],
       ),
