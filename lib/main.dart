@@ -1,7 +1,7 @@
-import 'package:dsc_training_project/screens/HomePage.dart';
+import 'package:dsc_training_project/screens/home_screen/HomePage.dart';
 import 'package:dsc_training_project/screens/Cards.dart';
 import 'package:dsc_training_project/screens/Orders.dart';
-import 'package:dsc_training_project/screens/Setting.dart';
+import 'package:dsc_training_project/screens/settings_screen/Setting.dart';
 import 'package:dsc_training_project/screens/SignIn.dart';
 import 'package:dsc_training_project/screens/SignUp.dart';
 import 'package:flutter/material.dart';

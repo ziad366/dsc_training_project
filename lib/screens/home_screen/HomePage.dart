@@ -1,12 +1,20 @@
 import 'dart:ui';
 
-import 'package:dsc_training_project/screens/Setting.dart';
+import 'package:dsc_training_project/screens/home_screen/category_model.dart';
+import 'package:dsc_training_project/screens/home_screen/home_screen_card_view_item_row.dart';
+import 'package:dsc_training_project/screens/home_screen/home_screen_offer_view_item.dart';
+import 'package:dsc_training_project/screens/home_screen/home_screen_top_categories_view_item.dart';
+import 'package:dsc_training_project/screens/home_screen/item_model.dart';
+import 'package:dsc_training_project/screens/settings_screen/Setting.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'home_screen_bottom_navigation_view_item.dart';
+import 'home_screen_popup_bottom_view_item.dart';
 
 class HomePage extends StatefulWidget {
   static String id = "HomePage";
@@ -659,15 +667,21 @@ class _HomePageState extends State<HomePage> {
       );
 
   Widget getScreenPart4() => SizedBox(
-        height: 180,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: offerCount,
-            itemBuilder: (context, index) {
-              return getOfferView(
-                  colors[index][0], colors[index][1], Colors.white, index);
-            }),
-      );
+      height: 180,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: offerCount,
+        itemBuilder: (context, index) {
+          return HomeOfferViewItem(
+            backColor1: colors[index][0],
+            backColor2: colors[index][1],
+            btnColor: Colors.white,
+            currentIndex: index,
+            offersNumber: offerCount,
+            offerImages: offerImages,
+          );
+        },
+      ));
 
   Widget getScreenPart5() => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -736,83 +750,163 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              getAllCategoriesItemView(0),
+                              HomePopUpBottomViewItem(
+                                index: 0,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(1),
+                              HomePopUpBottomViewItem(
+                                index: 1,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(2),
+                              HomePopUpBottomViewItem(
+                                index: 2,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(3),
+                              HomePopUpBottomViewItem(
+                                index: 3,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(4),
+                              HomePopUpBottomViewItem(
+                                index: 4,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(5),
+                              HomePopUpBottomViewItem(
+                                index: 5,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(6),
+                              HomePopUpBottomViewItem(
+                                index: 6,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(7),
+                              HomePopUpBottomViewItem(
+                                index: 7,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(8),
+                              HomePopUpBottomViewItem(
+                                index: 8,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(9),
+                              HomePopUpBottomViewItem(
+                                index: 9,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(0),
+                              HomePopUpBottomViewItem(
+                                index: 0,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(1),
+                              HomePopUpBottomViewItem(
+                                index: 1,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(2),
+                              HomePopUpBottomViewItem(
+                                index: 2,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(3),
+                              HomePopUpBottomViewItem(
+                                index: 3,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(4),
+                              HomePopUpBottomViewItem(
+                                index: 4,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(5),
+                              HomePopUpBottomViewItem(
+                                index: 5,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(6),
+                              HomePopUpBottomViewItem(
+                                index: 6,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(7),
+                              HomePopUpBottomViewItem(
+                                index: 7,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(8),
+                              HomePopUpBottomViewItem(
+                                index: 8,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
-                              getAllCategoriesItemView(9),
+                              HomePopUpBottomViewItem(
+                                index: 9,
+                                topCategoriesIcons: topCategoriesIcons,
+                                categories: categories,
+                              ),
                               SizedBox(
                                 width: 15,
                               ),
@@ -845,7 +939,12 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal,
             itemCount: topCategoriesCount,
             itemBuilder: (context, index) {
-              return getTopCategoriesView(index);
+              return HomeTopCategoriesViewItem(
+                  currentIndex: index,
+                  topCategoriesCount: topCategoriesCount,
+                  currentTopCategoriesIndex: currentTopCategoriesIndex,
+                  updateSelectedTopCategoryViewItem: topCategoryOnClick,
+                  topCategoriesIcons: topCategoriesIcons);
             }),
       );
 
@@ -853,441 +952,154 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.only(left: 15, right: 15),
         child: OrientationBuilder(
           builder: (context, orientation) {
+            bool goTriple =
+                MediaQuery.of(context).orientation == Orientation.landscape;
+            List<Widget> result = [];
+            bool isOdd = models[currentTopCategoriesIndex].length % 2 != 0;
+            bool isTriple = models[currentTopCategoriesIndex].length % 3 != 0;
+            int size;
+            if (!goTriple)
+              size = (!isOdd
+                      ? models[currentTopCategoriesIndex].length / 2
+                      : models[currentTopCategoriesIndex].length / 2 + 1)
+                  .toInt();
+            else
+              size = (!isTriple
+                      ? models[currentTopCategoriesIndex].length / 3
+                      : models[currentTopCategoriesIndex].length / 3 + 1)
+                  .toInt();
+            int index = 0;
+            for (int i = 0; i < size; i++) {
+              if (isTriple && goTriple && i != size - 1) {
+                ItemModel model1 = models[currentTopCategoriesIndex][index];
+                int index1 = index;
+                index++;
+                ItemModel model2 = models[currentTopCategoriesIndex][index];
+                int index2 = index;
+                index++;
+                ItemModel model3 = models[currentTopCategoriesIndex][index];
+                int index3 = index;
+                index++;
+                result.add(HomeCardViewItemRow(
+                  model1: model1,
+                  model2: model2,
+                  model3: model3,
+                  index1: index1,
+                  index2: index2,
+                  index3: index3,
+                  num: 3,
+                  isLastItem: i == size - 1,
+                  itemCardViewUpdateFavourites: itemCardViewUpdateFavourites,
+                  favourites: favourites,
+                  isOriented: goTriple,
+                ));
+              } else if (!isOdd ||
+                  (isOdd && i != size - 1) ||
+                  (isOdd && goTriple && i == size - 1)) {
+                ItemModel model1 = models[currentTopCategoriesIndex][index];
+                int index1 = index;
+                index++;
+                ItemModel model2 = models[currentTopCategoriesIndex][index];
+                int index2 = index;
+                index++;
+                result.add(HomeCardViewItemRow(
+                  model1: model1,
+                  model2: model2,
+                  model3: null,
+                  index1: index1,
+                  index2: index2,
+                  index3: null,
+                  num: 2,
+                  isLastItem: i == size - 1,
+                  itemCardViewUpdateFavourites: itemCardViewUpdateFavourites,
+                  favourites: favourites,
+                  isOriented: goTriple,
+                  isLastTwoItems: isOdd && goTriple && i == size - 1,
+                ));
+              } else {
+                ItemModel model1 = models[currentTopCategoriesIndex][index];
+                int index1 = index;
+                result.add(HomeCardViewItemRow(
+                  model1: model1,
+                  model2: null,
+                  model3: null,
+                  index1: index1,
+                  index2: null,
+                  index3: null,
+                  num: 1,
+                  isLastItem: i == size - 1,
+                  itemCardViewUpdateFavourites: itemCardViewUpdateFavourites,
+                  favourites: favourites,
+                  isOriented: goTriple,
+                ));
+              }
+            }
             return Column(
-              children: getCategoryItemCardRowList(
-                  MediaQuery.of(context).orientation == Orientation.landscape),
+              children: result,
             );
           },
         ),
       );
 
-  Widget getScreenPart8() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      clipBehavior: Clip.hardEdge,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          getBottomBarItemView(0, "Home", Icons.home),
-          getBottomBarItemView(1, "Favourites", Icons.favorite),
-          getBottomBarItemView(2, "My Cart", Icons.shopping_cart),
-          getBottomBarItemView(3, "Profile", Icons.person),
-        ],
-      ),
-    );
-  }
-
-  // get bottom navigation bar view item
-  Widget getBottomBarItemView(int index, String text, IconData iconData) =>
-      InkWell(
-        onTap: () => setState(() {
-          currentSelectedScreenView = index;
-        }),
-        child: currentSelectedScreenView == index
-            ? Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    color: Colors.orange.shade50,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Row(
-                  children: [
-                    Icon(
-                      iconData,
-                      color: Colors.orange,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      text,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.orange),
-                    )
-                  ],
-                ),
-              )
-            : Icon(
-                iconData,
-                color: Colors.grey,
-              ),
-      );
-
-  // get category item view in all categories view
-  Widget getAllCategoriesItemView(int index) => Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: Material(
-          borderRadius: BorderRadius.circular(20),
-          clipBehavior: Clip.hardEdge,
-          color: Colors.white,
-          child: InkWell(
-            onTap: () {},
-            child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(topCategoriesIcons[index]),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(categories[index].category)
-                  ],
-                )),
-          ),
-        ),
-      );
-
-  // get list of rows of double or triple or single item view
-  List<Widget> getCategoryItemCardRowList(bool goTriple) {
-    List<Widget> result = [];
-    bool isOdd = models[currentTopCategoriesIndex].length % 2 != 0;
-    bool isTriple = models[currentTopCategoriesIndex].length % 3 != 0;
-    int size;
-    if (!goTriple)
-      size = (!isOdd
-              ? models[currentTopCategoriesIndex].length / 2
-              : models[currentTopCategoriesIndex].length / 2 + 1)
-          .toInt();
-    else
-      size = (!isTriple
-              ? models[currentTopCategoriesIndex].length / 3
-              : models[currentTopCategoriesIndex].length / 3 + 1)
-          .toInt();
-    int index = 0;
-    for (int i = 0; i < size; i++) {
-      if (isTriple && goTriple && i != size - 1) {
-        ItemModel model1 = models[currentTopCategoriesIndex][index];
-        int index1 = index;
-        index++;
-        ItemModel model2 = models[currentTopCategoriesIndex][index];
-        int index2 = index;
-        index++;
-        ItemModel model3 = models[currentTopCategoriesIndex][index];
-        int index3 = index;
-        index++;
-        result.add(getCategoryItemCardRow(
-            model1, model2, model3, index1, index2, index3, 3, i == size - 1));
-      } else if (!isOdd ||
-          (isOdd && i != size - 1) ||
-          (isOdd && goTriple && i == size - 1)) {
-        ItemModel model1 = models[currentTopCategoriesIndex][index];
-        int index1 = index;
-        index++;
-        ItemModel model2 = models[currentTopCategoriesIndex][index];
-        int index2 = index;
-        index++;
-        result.add(getCategoryItemCardRow(
-            model1, model2, null, index1, index2, null, 2, i == size - 1));
-      } else {
-        ItemModel model1 = models[currentTopCategoriesIndex][index];
-        int index1 = index;
-        result.add(getCategoryItemCardRow(
-            model1, null, null, index1, null, null, 1, i == size - 1));
-      }
-    }
-    return result;
-  }
-
-  // get row of double or triple or single item view
-  Widget getCategoryItemCardRow(
-      ItemModel model1,
-      ItemModel? model2,
-      ItemModel? model3,
-      int index1,
-      int? index2,
-      int? index3,
-      int num,
-      bool isLastItem) {
-    if (num == 2) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(child: getCategoryItemCard(model1, isLastItem)),
-          SizedBox(
-            width: 15,
-          ),
-          Expanded(child: getCategoryItemCard(model2!, isLastItem))
-        ],
-      );
-    } else if (num == 3) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(child: getCategoryItemCard(model1, isLastItem)),
-          SizedBox(
-            width: 15,
-          ),
-          Expanded(child: getCategoryItemCard(model2!, isLastItem)),
-          SizedBox(
-            width: 15,
-          ),
-          Expanded(child: getCategoryItemCard(model3!, isLastItem))
-        ],
-      );
-    }
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [getCategoryItemCard(model1, isLastItem)],
-      ),
-    );
-  }
-
-  // get item card view
-  Widget getCategoryItemCard(ItemModel model, bool isLastItem) => Padding(
-        padding: EdgeInsets.only(top: 15, bottom: isLastItem ? 15 : 0),
-        child: Material(
-          borderRadius: BorderRadius.circular(10),
-          clipBehavior: Clip.hardEdge,
-          child: InkWell(
-            onTap: () {
-              //TODO got to item screen
-            },
-            child: Container(
-              width: isLastItem ? 220 : 0,
-              height: 280,
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.black12,
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white54,
-                        ),
-                        child: Text(
-                          model.isOfferEnabled ? model.offer : "",
-                          style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
-                        ),
-                      ),
-                      InkWell(
-                          onTap: () => setState(() {
-                                bool exists = favourites
-                                    .any((element) => element.id == model.id);
-                                if (exists) {
-                                  favourites.removeWhere(
-                                      (element) => element.id == model.id);
-                                } else {
-                                  favourites.add(model);
-                                }
-                              }),
-                          child: Icon(
-                            Icons.favorite,
-                            color: favourites
-                                    .any((element) => element.id == model.id)
-                                ? Colors.red
-                                : Colors.grey,
-                          ))
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: 150,
-                    height: 110,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      color: Colors.black12,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Image.asset(
-                      model.imagePath,
-                      fit: BoxFit.fill,
-                      filterQuality: FilterQuality.high,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white54,
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          model.itemName,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 17, color: Colors.black38),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            text: model.price,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                            children: <TextSpan>[
-                              TextSpan(text: ' '),
-                              TextSpan(
-                                  text: model.priceBeforeOffer,
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.black38,
-                                      decoration: TextDecoration.lineThrough)),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-
-  // get top categories view item
-  Widget getTopCategoriesView(int index) => InkWell(
-        onTap: () => setState(() {
-          currentTopCategoriesIndex = index;
-        }),
-        child: Container(
-          width: 60,
-          height: 20,
-          margin: EdgeInsets.only(
-              left: 15,
-              top: 10,
-              bottom: 10,
-              right: index == (topCategoriesCount - 1) ? 15 : 0),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: currentTopCategoriesIndex == index
-                  ? Colors.orange
-                  : Colors.black12),
-          child: Center(
-            child: Icon(
-              topCategoriesIcons[index],
-              color: currentTopCategoriesIndex == index
-                  ? Colors.white
-                  : Colors.black12,
-            ),
-          ),
-        ),
-      );
-
-  // get offer view item
-  Widget getOfferView(
-          Color backColor1, Color backColor2, Color btnColor, int index) =>
-      Container(
-        margin: EdgeInsets.only(
-            top: 15,
-            bottom: 15,
-            left: 15,
-            right: index == (offerCount - 1) ? 15 : 0),
-        width: 300,
-        height: 100,
+  Widget getScreenPart8() => Container(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [backColor1, backColor2]),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(15),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Text(
-                        "30% OFF DURING COVID 19",
-                        maxLines: 2,
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Material(
-                      borderRadius: BorderRadius.circular(20),
-                      clipBehavior: Clip.hardEdge,
-                      color: Colors.white,
-                      child: InkWell(
-                        onTap: () {
-                          // TODO get the offer
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          child: Text(
-                            "Get Now",
-                            style: TextStyle(color: backColor1),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Center(
-                child: Image.asset(
-                  offerImages[index],
-                  width: 90,
-                  height: 90,
-                ),
-              )
-            ],
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            HomeBottomNavigationViewItem(
+                index: 0,
+                text: "Home",
+                iconData: Icons.home,
+                updateCurrentSelectedHomeScreenPage:
+                    updateCurrentSelectedHomeScreenPage,
+                currentSelectedScreenView: currentSelectedScreenView),
+            HomeBottomNavigationViewItem(
+                index: 1,
+                text: "Favourites",
+                iconData: Icons.favorite,
+                updateCurrentSelectedHomeScreenPage:
+                    updateCurrentSelectedHomeScreenPage,
+                currentSelectedScreenView: currentSelectedScreenView),
+            HomeBottomNavigationViewItem(
+                index: 2,
+                text: "My Cart",
+                iconData: Icons.shopping_cart,
+                updateCurrentSelectedHomeScreenPage:
+                    updateCurrentSelectedHomeScreenPage,
+                currentSelectedScreenView: currentSelectedScreenView),
+            HomeBottomNavigationViewItem(
+                index: 3,
+                text: "Profile",
+                iconData: Icons.person,
+                updateCurrentSelectedHomeScreenPage:
+                    updateCurrentSelectedHomeScreenPage,
+                currentSelectedScreenView: currentSelectedScreenView),
+          ],
         ),
       );
-}
 
-// items category model class
-class Category {
-  final int id;
-  final String category;
+  // update current selected page in home screen from bottom nav bar
+  updateCurrentSelectedHomeScreenPage(int index) => setState(() {
+        currentSelectedScreenView = index;
+      });
 
-  Category({required this.id, required this.category});
-}
+  // change viewed items  by change selected category
+  topCategoryOnClick(int index) => setState(() {
+        currentTopCategoriesIndex = index;
+      });
 
-// item model class
-class ItemModel {
-  int id;
-  bool isOfferEnabled;
-  String offer;
-  String priceBeforeOffer;
-  String imagePath;
-  String itemName;
-  String price;
-  int categoryId;
-
-  ItemModel(
-      {required this.id,
-      required this.isOfferEnabled,
-      required this.offer,
-      required this.priceBeforeOffer,
-      required this.imagePath,
-      required this.itemName,
-      required this.price,
-      required this.categoryId});
+  // add or remove item card view from favourites
+  itemCardViewUpdateFavourites(ItemModel model) => setState(() {
+        bool exists = favourites.any((element) => element.id == model.id);
+        if (exists) {
+          favourites.removeWhere((element) => element.id == model.id);
+        } else {
+          favourites.add(model);
+        }
+      });
 }
