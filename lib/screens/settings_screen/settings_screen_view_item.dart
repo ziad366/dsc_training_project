@@ -1,3 +1,4 @@
+import 'package:dsc_training_project/screens/home_screen/data.dart';
 import 'package:flutter/material.dart';
 
 class SettingViewItem extends StatelessWidget {
@@ -23,14 +24,14 @@ class SettingViewItem extends StatelessWidget {
             text,
             style: TextStyle(
               fontSize: 25,
-              color: Colors.orange,
+              color: orangeColor,
             ),
           ),
           InkWell(
             onTap: () => Navigator.of(context).pushNamed(path),
             child: Icon(
               Icons.arrow_forward_ios,
-              color: Colors.orange,
+              color: orangeColor,
             ),
           )
         ],

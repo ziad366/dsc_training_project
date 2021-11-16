@@ -57,11 +57,11 @@ class _HomePageState extends State<HomePage> {
               : currentSelectedScreenView == 2
                   ? HomeScreenMyCardPage()
                   : HomeScreenProfilePage(),
-      bottomNavigationBar: getScreenPart8(),
+      bottomNavigationBar: getBottomNavigationBar(),
     );
   }
 
-  Widget getScreenPart8() => Container(
+  Widget getBottomNavigationBar() => Container(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(

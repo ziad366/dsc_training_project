@@ -1,4 +1,5 @@
 import 'package:dsc_training_project/screens/home_screen/HomePage.dart';
+import 'package:dsc_training_project/screens/home_screen/data.dart';
 import 'package:dsc_training_project/screens/settings_screen/settings_screen_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,10 @@ class Setting extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           id,
-          style: TextStyle(fontSize: 30, color: Colors.orange),
+          style: TextStyle(fontSize: 30, color: orangeColor),
         ),
         centerTitle: true,
-        backgroundColor: Colors.black12,
+        backgroundColor: backgroundColor,
         elevation: 0,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
@@ -29,7 +30,7 @@ class Setting extends StatelessWidget {
           child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Colors.black12,
+        color: backgroundColor,
         child: SingleChildScrollView(
           child: Column(
             children: [

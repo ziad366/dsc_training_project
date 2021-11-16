@@ -31,7 +31,7 @@ class HomeScreenPage extends StatelessWidget {
         child: Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
-      color: Colors.white,
+      color: backgroundColor,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -154,6 +154,7 @@ class HomeScreenPage extends StatelessWidget {
             Material(
               clipBehavior: Clip.hardEdge,
               borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
               child: InkWell(
                 onTap: () {
                   showModalBottomSheet<void>(
@@ -197,7 +198,7 @@ class HomeScreenPage extends StatelessWidget {
                                             "CLOSE",
                                             style: TextStyle(
                                                 fontSize: 15,
-                                                color: Colors.orange,
+                                                color: orangeColor,
                                                 fontWeight: FontWeight.bold),
                                           ),
                                         ),
@@ -379,7 +380,7 @@ class HomeScreenPage extends StatelessWidget {
                     "SEE ALL",
                     style: TextStyle(
                         fontSize: 15,
-                        color: Colors.orange,
+                        color: orangeColor,
                         fontWeight: FontWeight.bold),
                   ),
                 ),

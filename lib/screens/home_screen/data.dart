@@ -4,6 +4,9 @@ import 'package:dsc_training_project/screens/home_screen/item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+Color backgroundColor = Color.fromRGBO(245, 248, 253, 1);
+Color orangeColor = Color.fromRGBO(241, 107, 39, 1);
+
 // images of different offers views
 List<String> offerImages = [
   "assets/offer1.jpg",
