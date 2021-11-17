@@ -1,11 +1,11 @@
 import 'dart:ui';
 
-import 'package:dsc_training_project/screens/home_screen/home_screen_bottom_navigation_view_item.dart';
-import 'package:dsc_training_project/screens/home_screen/home_screen_favourite_page.dart';
-import 'package:dsc_training_project/screens/home_screen/home_screen_home_page.dart';
-import 'package:dsc_training_project/screens/home_screen/home_screen_my_card_page.dart';
-import 'package:dsc_training_project/screens/home_screen/home_screen_profile_page.dart';
-import 'package:dsc_training_project/screens/home_screen/item_model.dart';
+import 'package:dsc_training_project/models/item_model.dart';
+import 'package:dsc_training_project/widgets/home_screen/home_screen_bottom_navigation_view_item.dart';
+import 'package:dsc_training_project/widgets/home_screen/home_screen_favourite_page.dart';
+import 'package:dsc_training_project/widgets/home_screen/home_screen_home_page.dart';
+import 'package:dsc_training_project/widgets/home_screen/home_screen_my_card_page.dart';
+import 'package:dsc_training_project/widgets/home_screen/home_screen_profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';

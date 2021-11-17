@@ -1,4 +1,4 @@
-import 'package:dsc_training_project/screens/home_screen/item_model.dart';
+import 'package:dsc_training_project/models/item_model.dart';
 import 'package:flutter/material.dart';
 
 class HomeCardViewItem extends StatelessWidget {

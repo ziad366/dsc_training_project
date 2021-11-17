@@ -1,6 +1,6 @@
-import 'package:dsc_training_project/screens/home_screen/HomePage.dart';
-import 'package:dsc_training_project/screens/home_screen/data.dart';
-import 'package:dsc_training_project/screens/settings_screen/settings_screen_view_item.dart';
+import 'package:dsc_training_project/data.dart';
+import 'package:dsc_training_project/screens/HomePage.dart';
+import 'package:dsc_training_project/widgets/settings_screen/settings_screen_view_item.dart';
 import 'package:flutter/material.dart';
 
 class Setting extends StatelessWidget {

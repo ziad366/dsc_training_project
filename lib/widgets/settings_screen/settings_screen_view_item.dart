@@ -1,4 +1,4 @@
-import 'package:dsc_training_project/screens/home_screen/data.dart';
+import 'package:dsc_training_project/data.dart';
 import 'package:flutter/material.dart';
 
 class SettingViewItem extends StatelessWidget {

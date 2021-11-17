@@ -1,6 +1,6 @@
 // colors of different offers views
-import 'package:dsc_training_project/screens/home_screen/category_model.dart';
-import 'package:dsc_training_project/screens/home_screen/item_model.dart';
+import 'package:dsc_training_project/models/category_model.dart';
+import 'package:dsc_training_project/models/item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

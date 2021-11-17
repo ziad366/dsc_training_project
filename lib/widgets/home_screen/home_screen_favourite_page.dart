@@ -1,5 +1,5 @@
-import 'package:dsc_training_project/screens/home_screen/home_screen_card_view_item_row.dart';
-import 'package:dsc_training_project/screens/home_screen/item_model.dart';
+import 'package:dsc_training_project/models/item_model.dart';
+import 'package:dsc_training_project/widgets/home_screen/home_screen_card_view_item_row.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenFavouritePage extends StatelessWidget {
