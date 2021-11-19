@@ -209,164 +209,204 @@ class HomeScreenPage extends StatelessWidget {
                               ),
                               HomePopUpBottomViewItem(
                                 index: 0,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 1,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 2,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 3,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 4,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 5,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 6,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 7,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 8,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
                               SizedBox(
-                                width: 15,
+                                width: 5,
                               ),
                               HomePopUpBottomViewItem(
                                 index: 9,
+                                currentTopCategoriesIndex:
+                                    currentTopCategoriesIndex,
+                                updateSelectedTopCategoryViewItem:
+                                    topCategoryOnClick,
                                 topCategoriesIcons: topCategoriesIcons,
                                 categories: categories,
                               ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 0,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 1,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 2,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 3,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 4,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 5,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 6,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 7,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 8,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              HomePopUpBottomViewItem(
-                                index: 9,
-                                topCategoriesIcons: topCategoriesIcons,
-                                categories: categories,
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 0,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 1,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 2,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 3,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 4,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 5,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 6,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 7,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 8,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
+                              // HomePopUpBottomViewItem(
+                              //   index: 9,
+                              //   topCategoriesIcons: topCategoriesIcons,
+                              //   categories: categories,
+                              // ),
+                              // SizedBox(
+                              //   width: 15,
+                              // ),
                             ],
                           ),
                         ),
