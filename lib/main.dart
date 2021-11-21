@@ -7,14 +7,16 @@ import 'package:dsc_training_project/screens/SignUp.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
+  debugShowCheckedModeBanner: false,
   title: "DSC E-commerce project",
-  initialRoute:  HomePage.id  ,
+  initialRoute:  SignIn.id  ,
   routes: {
     Cards.id : (context) => Cards(),
     Orders.id : (context) => Orders(),
     Setting.id : (context) => Setting(),
     SignIn.id : (context) => SignIn(),
     SignUp.id : (context) => SignUp(),
+    HomePage.id : (context) => HomePage(),
 
 
   },
