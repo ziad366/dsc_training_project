@@ -10,6 +10,7 @@ import '../constants.dart';
 class Cards extends StatelessWidget {
   static String id = "cards";
 
+
   List x = List.generate(10, (index) {
    return CartItem();
   });
@@ -102,6 +103,10 @@ class Cards extends StatelessWidget {
 
 
 class CartItem extends StatelessWidget {
+
+  const Cards({Key? key}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
