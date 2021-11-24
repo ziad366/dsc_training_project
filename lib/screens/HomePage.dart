@@ -1,3 +1,4 @@
+
 import 'dart:ui';
 
 import 'package:dsc_training_project/models/item_model.dart';
@@ -7,6 +8,9 @@ import 'package:dsc_training_project/widgets/home_screen/home_screen_home_page.d
 import 'package:dsc_training_project/widgets/home_screen/home_screen_my_card_page.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_profile_page.dart';
 import 'package:flutter/cupertino.dart';
+
+import 'package:dsc_training_project/widgets/drawer.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -40,6 +44,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: currentSelectedScreenView == 0
           ? HomeScreenPage(
               topCategoryOnClick: topCategoryOnClick,
@@ -58,6 +63,11 @@ class _HomePageState extends State<HomePage> {
                   ? HomeScreenMyCardPage()
                   : HomeScreenProfilePage(),
       bottomNavigationBar: getBottomNavigationBar(),
+
+      body: Container(),
+      appBar: AppBar(),
+      drawer: drawer(),
+
     );
   }
 
