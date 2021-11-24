@@ -5,20 +5,24 @@ import 'package:dsc_training_project/screens/Setting.dart';
 import 'package:dsc_training_project/screens/SignIn.dart';
 import 'package:dsc_training_project/screens/SignUp.dart';
 import 'package:flutter/material.dart';
-
-void main() => runApp(MaterialApp(
-  debugShowCheckedModeBanner: false,
-  title: "DSC E-commerce project",
-  initialRoute:  SignIn.id  ,
-  routes: {
-    Cards.id : (context) => Cards(),
-    Orders.id : (context) => Orders(),
-    Setting.id : (context) => Setting(),
-    SignIn.id : (context) => SignIn(),
-    SignUp.id : (context) => SignUp(),
-    HomePage.id : (context) => HomePage(),
+import 'package:flutter/services.dart';
 
 
-  },
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+  runApp(MaterialApp(
+    title: "DSC E-commerce project",
+    initialRoute: HomePage.id,
+    debugShowCheckedModeBanner: false,
+    routes: {
+      HomePage.id: (context) => HomePage(),
+      Cards.id: (context) => Cards(),
+      Orders.id: (context) => Orders(),
+      Setting.id: (context) => Setting(),
+      SignIn.id: (context) => SignIn(),
+      SignUp.id: (context) => SignUp(),
+    },
+  ));
+}
 
-));
