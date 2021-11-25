@@ -36,25 +36,32 @@ class SignIn extends StatelessWidget {
             SizedBox(height: 12),
             SignForm(),
             SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Don’t have an account? ",
-              style: TextStyle(fontSize: 14),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don’t have an account?   ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey[900],
+                    fontSize: 15,
+                  ),
+                ),
+                InkWell(
+                  onTap: () =>
+                      Navigator.pushReplacementNamed(context, SignUp.id),
+                  child: Text(
+                    "Register",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Color.fromRGBO(241, 107, 39, 1),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
             ),
-            GestureDetector(
-             onTap: ()=> Navigator.pushNamed(context, SignUp.id),
-              child: Text(
-                "Register",
-                style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(241, 107, 39, 1)),
-              ),
-            ),
-          ],
-        ),
             SizedBox(height: 12),
             Text(
               "Quick access with :",
@@ -82,7 +89,6 @@ class SignIn extends StatelessWidget {
                 ),
               ],
             ),
-
           ],
         ),
       ),

@@ -1,7 +1,6 @@
 import 'package:dsc_training_project/screens/HomePage.dart';
 import 'package:flutter/material.dart';
 
-
 class SignUpForm extends StatefulWidget {
   @override
   _SignUpFormState createState() => _SignUpFormState();
@@ -12,6 +11,7 @@ class _SignUpFormState extends State<SignUpForm> {
   dynamic email;
   dynamic password;
   dynamic confirmPassword;
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                      Navigator.pushNamed(context, HomePage.id);
+                    Navigator.pushReplacementNamed(context, HomePage.id);
                   }
                 },
                 child: Text(
@@ -96,10 +96,10 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
-      obscureText: true,
+      obscureText: hidePassword,
       onSaved: (newValue) => password = newValue,
-      onChanged: (value){
-        password =value;
+      onChanged: (value) {
+        password = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -111,7 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: InputDecoration(
         hintText: "enter password",
-        hintStyle: TextStyle(fontSize: 14.0,color: Colors.grey),
+        hintStyle: TextStyle(fontSize: 14.0, color: Colors.grey),
         contentPadding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 20),
         filled: true,
         fillColor: Colors.white,
@@ -132,21 +132,31 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         suffixIcon: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Image.asset(
-            "assets/images/visibility.png",
-            height: 15,
-            color: Color.fromRGBO(241, 107, 39, 1)
+          child: Material(
+            clipBehavior: Clip.hardEdge,
+            borderRadius: BorderRadius.circular(28),
+            child: InkWell(
+              onTap: () => setState(() {
+                hidePassword = !hidePassword;
+              }),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("assets/images/visibility.png",
+                    height: 15, color: Color.fromRGBO(241, 107, 39, 1)),
+              ),
+            ),
           ),
         ),
       ),
     );
   }
+
   TextFormField buildConfirmPasswordFormField() {
     return TextFormField(
-      obscureText: true,
+      obscureText: hidePassword,
       onSaved: (newValue) => confirmPassword = newValue,
-      onChanged: (value){
-        confirmPassword=value;
+      onChanged: (value) {
+        confirmPassword = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -157,8 +167,8 @@ class _SignUpFormState extends State<SignUpForm> {
         return null;
       },
       decoration: InputDecoration(
-        hintText: "return password" ,
-        hintStyle: TextStyle(fontSize: 14.0,color: Colors.grey),
+        hintText: "return password",
+        hintStyle: TextStyle(fontSize: 14.0, color: Colors.grey),
         contentPadding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 20),
         filled: true,
         fillColor: Colors.white,
@@ -179,23 +189,31 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         suffixIcon: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Image.asset(
-            "assets/images/visibility.png",
-            height: 15,
-            color: Color.fromRGBO(241, 107, 39, 1)
+          child: Material(
+            clipBehavior: Clip.hardEdge,
+            borderRadius: BorderRadius.circular(28),
+            child: InkWell(
+              onTap: () => setState(() {
+                hidePassword = !hidePassword;
+              }),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset("assets/images/visibility.png",
+                    height: 20, color: Color.fromRGBO(241, 107, 39, 1)),
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 
-
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
-      onChanged: (value){
-        email=value;
+      onChanged: (value) {
+        email = value;
       },
       validator: (value) {
         if (value!.isEmpty) {
@@ -207,7 +225,7 @@ class _SignUpFormState extends State<SignUpForm> {
       },
       decoration: InputDecoration(
         hintText: "enter  email",
-        hintStyle: TextStyle(fontSize: 14.0,color: Colors.grey),
+        hintStyle: TextStyle(fontSize: 14.0, color: Colors.grey),
         filled: true,
         fillColor: Colors.white,
         contentPadding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 20),
@@ -230,7 +248,6 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
-
   final RegExp emailValidatorRegExp =
-  RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+      RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 }

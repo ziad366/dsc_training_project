@@ -13,7 +13,7 @@ void main() {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   runApp(MaterialApp(
     title: "DSC E-commerce project",
-    initialRoute: HomePage.id,
+    initialRoute: SignIn.id,
     debugShowCheckedModeBanner: false,
     routes: {
       HomePage.id: (context) => HomePage(),

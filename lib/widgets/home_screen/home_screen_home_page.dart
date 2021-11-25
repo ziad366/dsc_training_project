@@ -2,7 +2,6 @@ import 'package:dsc_training_project/data.dart';
 import 'package:dsc_training_project/models/item_model.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_card_view_item_row.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_offer_view_item.dart';
-import 'package:dsc_training_project/screens/Setting.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_popup_bottom_view_item.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_top_categories_view_item.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,8 @@ class HomeScreenPage extends StatelessWidget {
       required this.topCategoryOnClick,
       required this.currentTopCategoriesIndex,
       required this.favourites,
-      required this.itemCardViewUpdateFavourites})
+      required this.itemCardViewUpdateFavourites,
+      required this.scaffoldKey})
       : super(key: key);
 
   final int offersNumber;
@@ -24,6 +24,7 @@ class HomeScreenPage extends StatelessWidget {
   final int currentTopCategoriesIndex;
   final List favourites;
   final Function(ItemModel model) itemCardViewUpdateFavourites;
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +60,9 @@ class HomeScreenPage extends StatelessWidget {
               color: Colors.black12,
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, Setting.id);
-                  // TODO open Drawer
+                  if (scaffoldKey.currentState != null) {
+                    scaffoldKey.currentState!.openDrawer();
+                  }
                 },
                 child: Container(
                     width: 50,
