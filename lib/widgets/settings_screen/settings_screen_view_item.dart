@@ -1,5 +1,6 @@
 import 'package:dsc_training_project/data.dart';
 import 'package:flutter/material.dart';
+import 'package:dsc_training_project/bloc_cubit/e_commerce_cubit.dart';
 
 class SettingViewItem extends StatelessWidget {
   const SettingViewItem({Key? key, required this.text, required this.path})
@@ -28,7 +29,10 @@ class SettingViewItem extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () => Navigator.of(context).pushNamed(path),
+            onTap: (){
+              Navigator.of(context).pushNamed(path);
+              text == 'Dark Mode'? ECommerceCubit.get(context).changeThme() : null;
+            }
             child: Icon(
               Icons.arrow_forward_ios,
               color: orangeColor,
