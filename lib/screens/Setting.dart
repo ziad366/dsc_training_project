@@ -11,6 +11,7 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: Text(
           id,
@@ -30,7 +31,8 @@ class Setting extends StatelessWidget {
           child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: backgroundColor,
+        color: Theme.of(context).backgroundColor,
+
         child: SingleChildScrollView(
           child: Column(
             children: [
