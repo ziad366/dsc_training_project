@@ -7,8 +7,6 @@ class FirebaseServices {
 
   // final DatabaseService _databaseService = DatabaseService();
 
-  //TODO Login and Registration Operations
-
   Future<String> signup(
       {required String userName,
       required String email,
@@ -17,6 +15,7 @@ class FirebaseServices {
       final UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       if (result.user != null) {
+        //TODO database operation
         print("User ID: ${result.user!.uid}");
         return "User Account Has been Created...";
       }
