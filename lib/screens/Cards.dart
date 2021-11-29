@@ -104,7 +104,7 @@ class Cards extends StatelessWidget {
 
 class CartItem extends StatelessWidget {
 
-  const Cards({Key? key}) : super(key: key);
+  const CartItem({Key? key}) : super(key: key);
 
 
   @override
