@@ -1,7 +1,5 @@
-import 'package:dsc_training_project/screens/HomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class Orders extends StatefulWidget {
   static String id = "Orders";
@@ -13,7 +11,6 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
-
   List orderdList = List.generate(3, (index) {
     return OrderdItem();
   });
@@ -26,14 +23,16 @@ class _OrdersState extends State<Orders> {
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        title: Text('My Orders',),
+        title: Text(
+          'My Orders',
+        ),
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,),
-          onPressed: () {
-            Navigator.pushNamed(context, HomePage.id);
-          },
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: Column(
@@ -54,7 +53,6 @@ class _OrdersState extends State<Orders> {
     );
   }
 }
-
 
 class OrderdItem extends StatelessWidget {
   @override
@@ -115,7 +113,9 @@ class OrderdItem extends StatelessWidget {
                       '140\$',
                       style: Theme.of(context).textTheme.headline3,
                     ),
-                    const SizedBox(height: 5,),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -127,14 +127,17 @@ class OrderdItem extends StatelessWidget {
                           children: [
                             Text(
                               'Shipped',
-                              style:Theme.of(context).textTheme.headline5,
+                              style: Theme.of(context).textTheme.headline5,
                             ),
-                            const SizedBox(width: 5,),
+                            const SizedBox(
+                              width: 5,
+                            ),
                             Padding(
                               padding: const EdgeInsets.only(right: 10),
                               child: Icon(
-                           // Icons.local_shipping_outlined,color: Theme.of(context).iconTheme.color,),
-                                Icons.check_circle,color: Colors.green,),
+                                // Icons.local_shipping_outlined,color: Theme.of(context).iconTheme.color,),
+                                Icons.check_circle, color: Colors.green,
+                              ),
                             ),
                           ],
                         ),

@@ -1,5 +1,7 @@
 import 'package:dsc_training_project/data.dart';
 import 'package:dsc_training_project/screens/HomePage.dart';
+import 'package:dsc_training_project/screens/Orders.dart';
+import 'package:dsc_training_project/screens/dark_mode.dart';
 import 'package:dsc_training_project/widgets/settings_screen/settings_screen_view_item.dart';
 import 'package:flutter/material.dart';
 
@@ -34,10 +36,8 @@ class Setting extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SettingViewItem(text: "Dark Mode", path: HomePage.id),
-              // TODO set Dark Mode Screen path
-              SettingViewItem(text: "My Orders", path: HomePage.id),
-              // TODO set My Orders Screen path
+              SettingViewItem(text: "Dark Mode", path: DarkMode.id),
+              SettingViewItem(text: "My Orders", path: Orders.id),
               SettingViewItem(text: "Account Settings", path: HomePage.id),
               //TODO set Account Settings Screen path
               SettingViewItem(text: "About", path: HomePage.id),

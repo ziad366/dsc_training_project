@@ -6,6 +6,7 @@ import 'package:dsc_training_project/screens/Orders.dart';
 import 'package:dsc_training_project/screens/Setting.dart';
 import 'package:dsc_training_project/screens/SignIn.dart';
 import 'package:dsc_training_project/screens/SignUp.dart';
+import 'package:dsc_training_project/screens/dark_mode.dart';
 
 // import 'package:dsc_training_project/screens/product_page.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ void main() => runApp(
           builder: (context, state) {
             return MaterialApp(
               title: "DSC E-commerce project",
-              initialRoute: Orders.id,
+              initialRoute: HomePage.id,
               routes: {
                 HomePage.id: (context) => HomePage(),
                 Cards.id: (context) => Cards(),
@@ -33,6 +34,7 @@ void main() => runApp(
                 Setting.id: (context) => Setting(),
                 SignIn.id: (context) => SignIn(),
                 SignUp.id: (context) => SignUp(),
+                DarkMode.id: (context) => DarkMode(),
                 // ProductPage.id: (context) =>ProductPage(),
               },
               debugShowCheckedModeBanner: false,
@@ -42,15 +44,15 @@ void main() => runApp(
                   ? ThemeMode.dark
                   : ThemeMode.light,
 
-              theme: LightTheme(),
-              darkTheme: DarkTheme(),
+              theme: lightTheme(),
+              darkTheme: darkTheme(),
             );
           },
         ),
       ),
     );
 
-ThemeData LightTheme() {
+ThemeData lightTheme() {
   return ThemeData(
     brightness: Brightness.light,
     backgroundColor: whiteColor,
@@ -118,7 +120,7 @@ ThemeData LightTheme() {
   );
 }
 
-ThemeData DarkTheme() {
+ThemeData darkTheme() {
   return ThemeData(
     brightness: Brightness.dark,
     backgroundColor: blackColor,
