@@ -122,7 +122,9 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                // TODO navigate into profile screen
+              },
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
@@ -150,7 +152,9 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                // TODO navigate into favourites screen
+              },
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
