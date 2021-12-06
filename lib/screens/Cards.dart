@@ -10,11 +10,9 @@ import '../constants.dart';
 class Cards extends StatelessWidget {
   static String id = "cards";
 
-
-  List x = List.generate(10, (index) {
-   return CartItem();
+  final List x = List.generate(10, (index) {
+    return CartItem();
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +22,15 @@ class Cards extends StatelessWidget {
         iconTheme: Theme.of(context).appBarTheme.iconTheme,
         titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        title: Text('My Cart',),
+        title: Text(
+          'My Cart',
+        ),
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,),
+          icon: Icon(
+            Icons.arrow_back,
+          ),
           onPressed: () {
             Navigator.pushNamed(context, HomePage.id);
           },
@@ -64,9 +66,10 @@ class Cards extends StatelessWidget {
                         padding: const EdgeInsets.all(10.0),
                         child: Text(
                           '330\$',
-                          style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                            color: defaultOrangeColor
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              ?.copyWith(color: defaultOrangeColor),
                         ),
                       ),
                     ],
@@ -101,11 +104,8 @@ class Cards extends StatelessWidget {
   }
 }
 
-
 class CartItem extends StatelessWidget {
-
   const CartItem({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -213,5 +213,3 @@ class CartItem extends StatelessWidget {
     );
   }
 }
-
-

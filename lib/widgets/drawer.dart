@@ -1,3 +1,4 @@
+import 'package:dsc_training_project/screens/Cards.dart';
 import 'package:dsc_training_project/screens/HomePage.dart';
 import 'package:dsc_training_project/screens/Setting.dart';
 import 'package:dsc_training_project/screens/SignIn.dart';
@@ -93,7 +94,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Cards.id),
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(
