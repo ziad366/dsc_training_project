@@ -1,4 +1,5 @@
 import 'package:dsc_training_project/models/item_model.dart';
+import 'package:dsc_training_project/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeCardViewItem extends StatelessWidget {
@@ -26,7 +27,8 @@ class HomeCardViewItem extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         child: InkWell(
           onTap: () {
-            //TODO got to item screen
+
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProductPage(model: model)));
           },
           child: Container(
             width: (isLastTwoItems != null && isLastTwoItems == true)

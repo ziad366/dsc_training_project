@@ -1,3 +1,4 @@
+import 'package:dsc_training_project/screens/SignIn.dart';
 import 'package:dsc_training_project/widgets/sign_up_form.dart';
 import 'package:dsc_training_project/widgets/socail_card.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,33 @@ class SignUp extends StatelessWidget {
             ),
             SizedBox(height: 8),
             SignUpForm(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Already Have An Account   ",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey[900],
+                    fontSize: 15,
+                  ),
+                ),
+                InkWell(
+                  onTap: () =>
+                      Navigator.pushReplacementNamed(context, SignIn.id),
+                  child: Text(
+                    "Login",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Color.fromRGBO(241, 107, 39, 1),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 12),
             Text(
               "Quick access with :",
               textAlign: TextAlign.center,
@@ -51,7 +79,6 @@ class SignUp extends StatelessWidget {
                 ),
               ],
             ),
-
           ],
         ),
       ),

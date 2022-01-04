@@ -1,8 +1,6 @@
-
 import 'dart:ui';
 
 import 'package:dsc_training_project/models/item_model.dart';
-import 'package:dsc_training_project/widgets/home_screen/home_screen_bottom_navigation_view_item.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_favourite_page.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_home_page.dart';
 import 'package:dsc_training_project/widgets/home_screen/home_screen_my_card_page.dart';
@@ -41,10 +39,13 @@ class _HomePageState extends State<HomePage> {
   // index of selected icon in bottom nav bar
   int currentSelectedScreenView = 0;
 
+  // key for home page scaffold to open drawer through
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      key: _scaffoldKey,
       body: currentSelectedScreenView == 0
           ? HomeScreenPage(
               topCategoryOnClick: topCategoryOnClick,
@@ -53,64 +54,50 @@ class _HomePageState extends State<HomePage> {
               favourites: favourites,
               offersNumber: offerCount,
               itemCardViewUpdateFavourites: itemCardViewUpdateFavourites,
+              scaffoldKey: _scaffoldKey,
             )
           : currentSelectedScreenView == 1
               ? HomeScreenFavouritePage(
                   itemCardViewUpdateFavourites: itemCardViewUpdateFavourites,
                   favourites: favourites,
+                  scaffoldKey: _scaffoldKey,
                 )
               : currentSelectedScreenView == 2
-                  ? HomeScreenMyCardPage()
-                  : HomeScreenProfilePage(),
-      bottomNavigationBar: getBottomNavigationBar(),
-
-      body: Container(),
-      appBar: AppBar(),
-      drawer: drawer(),
-
+                  ? HomeScreenMyCardPage(
+                      scaffoldKey: _scaffoldKey,
+                    )
+                  : HomeScreenProfilePage(
+                      scaffoldKey: _scaffoldKey,
+                    ),
+      bottomNavigationBar: getBottomNavigationBar1(),
+      drawer: MyDrawer(
+        currentPage: HomePage.id,
+      ),
     );
   }
 
-  Widget getBottomNavigationBar() => Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            HomeBottomNavigationViewItem(
-                index: 0,
-                text: "Home",
-                iconData: Icons.home,
-                updateCurrentSelectedHomeScreenPage:
-                    updateCurrentSelectedHomeScreenPage,
-                currentSelectedScreenView: currentSelectedScreenView),
-            HomeBottomNavigationViewItem(
-                index: 1,
-                text: "Favourites",
-                iconData: Icons.favorite,
-                updateCurrentSelectedHomeScreenPage:
-                    updateCurrentSelectedHomeScreenPage,
-                currentSelectedScreenView: currentSelectedScreenView),
-            HomeBottomNavigationViewItem(
-                index: 2,
-                text: "My Cart",
-                iconData: Icons.shopping_cart,
-                updateCurrentSelectedHomeScreenPage:
-                    updateCurrentSelectedHomeScreenPage,
-                currentSelectedScreenView: currentSelectedScreenView),
-            HomeBottomNavigationViewItem(
-                index: 3,
-                text: "Profile",
-                iconData: Icons.person,
-                updateCurrentSelectedHomeScreenPage:
-                    updateCurrentSelectedHomeScreenPage,
-                currentSelectedScreenView: currentSelectedScreenView),
-          ],
-        ),
+  BottomNavigationBar getBottomNavigationBar1() => BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: true,
+        showUnselectedLabels: false,
+        currentIndex: currentSelectedScreenView,
+        selectedItemColor: Colors.orange,
+        onTap: (index) => updateCurrentSelectedHomeScreenPage(index),
+        selectedFontSize: 15,
+        selectedLabelStyle: TextStyle(
+            fontSize: 20, fontWeight: FontWeight.bold, color: Colors.orange),
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            backgroundColor: Colors.orange.shade50,
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Favourites'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart), label: 'My Cart'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile")
+        ],
       );
 
   // update current selected page in home screen from bottom nav bar

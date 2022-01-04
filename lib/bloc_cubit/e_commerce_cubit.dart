@@ -1,6 +1,6 @@
 import 'package:dsc_training_project/bloc_cubit/e_commerce_cubit_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:dsc_training_project/screens/product_screen.dart';
 class ECommerceCubit extends Cubit<ECommerceStates>{
   ECommerceCubit() : super(InitialState());
 
@@ -13,14 +13,37 @@ class ECommerceCubit extends Cubit<ECommerceStates>{
     emit(ChangeThemeModeState());
   }
 
-  int productNumber = 1;
-  void incrementProductNumber(){
-    productNumber++;
+
+  // for(int i=0 ; i<cartItems.length ; i++){
+  // int p=int.parse(cartItems[i].price);
+  // int c= myCounterList[i];
+  // sum=(sum+p*c);
+  // }
+
+  int sum=0;
+  List myCounterList = ones;
+
+  void incrementProductNumber(index){
+    sum=0;
+    for(int i=0 ; i<cartItems.length ; i++){
+      int p=int.parse(cartItems[i].price);
+      int c= myCounterList[i];
+   sum=(sum+p*c);
+    }
+    myCounterList[index]++;
     emit(IncrementProductNumber());
   }
-  void decrementProductNumber(){
-   if(productNumber>1) {
-     productNumber--;
+  void decrementProductNumber(index){
+   if(myCounterList[index]>1) {
+
+     sum=0;
+     for(int i=0 ; i<cartItems.length ; i++){
+       int p=int.parse(cartItems[i].price);
+       int c= myCounterList[i];
+       sum=(sum+p*c);
+     }
+
+     myCounterList[index]--;
     emit(DecrementProductNumber());
   }else{
      print('couldn\'t minus');

@@ -6,11 +6,13 @@ class HomeScreenFavouritePage extends StatelessWidget {
   const HomeScreenFavouritePage(
       {Key? key,
       required this.favourites,
-      required this.itemCardViewUpdateFavourites})
+      required this.itemCardViewUpdateFavourites,
+      required this.scaffoldKey})
       : super(key: key);
 
   final List favourites;
   final Function(ItemModel model) itemCardViewUpdateFavourites;
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +23,47 @@ class HomeScreenFavouritePage extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       color: Colors.white,
       child: SingleChildScrollView(
-        child: getScreenPart1(),
+        child: Column(
+          children: [
+            getScreenPart1(context),
+            getScreenPart2(),
+          ],
+        ),
       ),
     ));
   }
 
-  Widget getScreenPart1() => Padding(
+  Widget getScreenPart1(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Material(
+              borderRadius: BorderRadius.circular(20),
+              clipBehavior: Clip.hardEdge,
+              color: Colors.black12,
+              child: InkWell(
+                onTap: () {
+                  if (scaffoldKey.currentState != null) {
+                    scaffoldKey.currentState!.openDrawer();
+                  }
+                },
+                child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: Image.asset(
+                      "assets/bowen_kton.png",
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
+          ],
+        ),
+      );
+
+  Widget getScreenPart2() => Padding(
         padding: EdgeInsets.only(left: 15, right: 15),
         child: OrientationBuilder(
           builder: (context, orientation) {
