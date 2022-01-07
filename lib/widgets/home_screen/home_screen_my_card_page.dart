@@ -16,7 +16,7 @@ class HomeScreenMyCardPage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            getScreenPart1(context),
+            getScreenPart1(context)
           ],
         ),
       ),

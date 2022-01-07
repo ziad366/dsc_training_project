@@ -94,7 +94,13 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.pushNamed(context, Cards.id),
+
+              onTap: (){
+               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Cards()));
+              },
+
+              //onTap: () => Navigator.pushNamed(context, Cards.id),
+
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Container(

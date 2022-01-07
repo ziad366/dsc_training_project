@@ -1,7 +1,6 @@
 import 'package:dsc_training_project/bloc_cubit/e_commerce_cubit.dart';
 import 'package:dsc_training_project/bloc_cubit/e_commerce_cubit_states.dart';
 import 'package:dsc_training_project/screens/HomePage.dart';
-import 'package:dsc_training_project/screens/Cards.dart';
 import 'package:dsc_training_project/screens/Orders.dart';
 import 'package:dsc_training_project/screens/Setting.dart';
 import 'package:dsc_training_project/screens/SignIn.dart';
@@ -13,6 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants.dart';
+
+import 'screens/product_screen.dart';
+
 
 void main() => runApp(
       //multi bloc state management provider
@@ -26,7 +28,9 @@ void main() => runApp(
           builder: (context, state) {
             return MaterialApp(
               title: "DSC E-commerce project",
-              initialRoute: HomePage.id,
+
+              initialRoute: SignIn.id,
+             
               routes: {
                 HomePage.id: (context) => HomePage(),
                 Cards.id: (context) => Cards(),
@@ -35,7 +39,10 @@ void main() => runApp(
                 SignIn.id: (context) => SignIn(),
                 SignUp.id: (context) => SignUp(),
                 DarkMode.id: (context) => DarkMode(),
+
+
                 // ProductPage.id: (context) =>ProductPage(),
+
               },
               debugShowCheckedModeBanner: false,
 

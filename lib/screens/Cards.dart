@@ -1,5 +1,8 @@
 import 'package:dsc_training_project/bloc_cubit/e_commerce_cubit.dart';
+import 'package:dsc_training_project/models/item_model.dart';
 import 'package:dsc_training_project/screens/HomePage.dart';
+import 'package:dsc_training_project/screens/product_screen.dart';
+import 'package:dsc_training_project/widgets/cards_widgets/cards_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -7,12 +10,31 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import '../constants.dart';
 
-class Cards extends StatelessWidget {
+
+List<ItemModel>orderdList=[];
+
+class Cards extends StatefulWidget {
   static String id = "cards";
 
-  final List x = List.generate(10, (index) {
-    return CartItem();
-  });
+
+  @override
+  State<Cards> createState() => _CardsState();
+}
+
+class _CardsState extends State<Cards> {
+
+  @override
+  void initState() {
+    ECommerceCubit.get(context).sum=0;
+    for(int i=0 ; i<cartItems.length ; i++){
+    int p=int.parse(cartItems[i].price);
+    int c= ECommerceCubit.get(context).myCounterList[i];
+    ECommerceCubit.get(context).sum=(ECommerceCubit.get(context).sum+p*c);
+    }
+    super.initState();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +63,12 @@ class Cards extends StatelessWidget {
           Expanded(
             child: Container(
               width: double.infinity,
-              child: ListView.builder(
-                itemCount: x.length,
-                itemBuilder: (context, index) {
-                  return x[index];
-                },
-              ),
+              child: cartItems.length!=0 ? ListView.builder(
+                itemCount: cartItems.length,
+                  itemBuilder: (context , index){
+                  return CartItem(index: index);
+                  }
+                  ): Center(child: Image.asset('assets/images/freecart.png'),),
             ),
           ),
           Container(
@@ -61,11 +83,11 @@ class Cards extends StatelessWidget {
                         'Total',
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Text(
-                          '330\$',
+                          '${ECommerceCubit.get(context).sum}\$',
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -87,7 +109,14 @@ class Cards extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          orderdList.clear();
+                          orderdList.addAll(cartItems);
+                          /// show dialog
+                           dialog(context);
+                        });
+                        },
                       child: Text(
                         'Buy Now',
                         style: Theme.of(context).textTheme.button,
@@ -103,6 +132,9 @@ class Cards extends StatelessWidget {
     );
   }
 }
+
+
+
 
 class CartItem extends StatelessWidget {
   const CartItem({Key? key}) : super(key: key);
@@ -213,3 +245,4 @@ class CartItem extends StatelessWidget {
     );
   }
 }
+

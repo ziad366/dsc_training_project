@@ -16,5 +16,14 @@ class ItemModel {
       required this.imagePath,
       required this.itemName,
       required this.price,
-      required this.categoryId});
+      required this.categoryId,
+      }
+      );
+}
+
+// sizes in product page
+class Sizes {
+  bool colored;
+  int  size;
+  Sizes({required this.size,required this.colored});
 }

@@ -1,69 +1,14 @@
-
-import 'package:dsc_training_project/screens/Cards.dart';
-import 'package:dsc_training_project/widgets/orders_widgets/orders_widgets.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:dsc_training_project/bloc_cubit/e_commerce_cubit.dart';
+import 'package:dsc_training_project/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
-class Orders extends StatefulWidget {
-  static String id = "Orders";
-
-  Orders({Key? key,}) : super(key: key);
-
-  @override
-  _OrdersState createState() => _OrdersState();
-}
-
-class _OrdersState extends State<Orders> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      appBar: AppBar(
-        iconTheme: Theme.of(context).appBarTheme.iconTheme,
-        titleTextStyle: Theme.of(context).appBarTheme.titleTextStyle,
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        title: Text(
-          'My Orders',
-        ),
-        centerTitle: true,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              child: ListView.builder(
-                itemCount: orderdList.length,
-                itemBuilder: (context, index) {
-                  return orderdList[index];
-                },
-              ),
-            ),
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: orderdList.length !=0 ? ListView.builder(
-        itemCount: orderdList.length,
-          itemBuilder: (context,index){
-          return OrderdItem(index:index,item: orderdList[index]);
-          },
-      ): Center(child: Image.asset('assets/images/cart.pn'),),
-    );
-  }
-}
-
-
 class OrderdItem extends StatelessWidget {
+  var item;
+  int index;
+
+  OrderdItem({
+    required this.index,
+    required this.item});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -81,18 +26,9 @@ class OrderdItem extends StatelessWidget {
                 horizontal: 10,
               ),
               child: Container(
-                height: 100,
-                width: 70,
-                decoration: BoxDecoration(
-                  // border: Border.all(),
-                  borderRadius: BorderRadius.circular(15),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      'https://image.freepik.com/free-psd/front-view-stylish-man-hoodie-with-headphones_23-2148939682.jpg',
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                  height: 100,
+                  width: 70,
+                  child:  Image.asset('${item?.imagePath}',)
               ),
             ),
             Expanded(
@@ -102,7 +38,7 @@ class OrderdItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Apple Watch Series 3',
+                      '${item?.itemName}',
                       maxLines: 1,
                       softWrap: true,
                       overflow: TextOverflow.ellipsis,
@@ -112,14 +48,14 @@ class OrderdItem extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      'Size :36',
+                      'Size :${yourSizes[index]}',
                       style: Theme.of(context).textTheme.headline2,
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      '140\$',
+                      '${item?.price}',
                       style: Theme.of(context).textTheme.headline3,
                     ),
                     const SizedBox(
@@ -129,7 +65,7 @@ class OrderdItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Amount 1',
+                          'Amount ${ECommerceCubit.get(context).myCounterList[index]}',
                           style: Theme.of(context).textTheme.headline4,
                         ),
                         Row(
@@ -162,4 +98,3 @@ class OrderdItem extends StatelessWidget {
     );
   }
 }
-
