@@ -16,6 +16,7 @@ List<ItemModel>orderdList=[];
 class Cards extends StatefulWidget {
   static String id = "cards";
 
+
   @override
   State<Cards> createState() => _CardsState();
 }
@@ -32,6 +33,8 @@ class _CardsState extends State<Cards> {
     }
     super.initState();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -130,4 +133,116 @@ class _CardsState extends State<Cards> {
   }
 }
 
+
+
+
+class CartItem extends StatelessWidget {
+  const CartItem({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        color: Theme.of(context).cardColor,
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 10,
+              ),
+              child: Container(
+                height: 100,
+                width: 70,
+                decoration: BoxDecoration(
+                  // border: Border.all(),
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      'https://image.freepik.com/free-psd/front-view-stylish-man-hoodie-with-headphones_23-2148939682.jpg',
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Apple Watch Series 3',
+                  maxLines: 1,
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headline1,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Size :36',
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  '140\$',
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ],
+            ),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    height: 30,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).backgroundColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          ECommerceCubit.get(context).decrementProductNumber();
+                        },
+                        icon: Center(
+                          child: Icon(
+                            Icons.remove,
+                            color: Theme.of(context).iconTheme.color,
+                          ),
+                        ),
+                      ),
+                      Text('${ECommerceCubit.get(context).productNumber}'),
+                      IconButton(
+                        onPressed: () {
+                          ECommerceCubit.get(context).incrementProductNumber();
+                        },
+                        icon: Icon(
+                          Icons.add,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 

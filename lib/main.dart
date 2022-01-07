@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants.dart';
+
 import 'screens/product_screen.dart';
+
 
 void main() => runApp(
       //multi bloc state management provider
@@ -26,16 +28,21 @@ void main() => runApp(
           builder: (context, state) {
             return MaterialApp(
               title: "DSC E-commerce project",
+
               initialRoute: SignIn.id,
+             
               routes: {
                 HomePage.id: (context) => HomePage(),
-               //Cards.id: (context) => Cards(),
+                Cards.id: (context) => Cards(),
                 Orders.id: (context) => Orders(),
                 Setting.id: (context) => Setting(),
                 SignIn.id: (context) => SignIn(),
                 SignUp.id: (context) => SignUp(),
                 DarkMode.id: (context) => DarkMode(),
-                //ProductPage.id: (context) =>ProductPage(model: null,),
+
+
+                // ProductPage.id: (context) =>ProductPage(),
+
               },
               debugShowCheckedModeBanner: false,
 
